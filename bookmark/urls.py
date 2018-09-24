@@ -1,8 +1,10 @@
-from django.conf.urls import include, url
-from django.contrib import admin
 from . import views
 
-from bookmark.views import BookmarkLV, BookmarkDV
+from django.conf.urls import include, url
+from django.contrib import admin
+
+from bookmark.views import *
+
 
 urlpatterns = [
     # 북마크 앱을 위한 클래스 기반 뷰
@@ -13,5 +15,10 @@ urlpatterns = [
     # tabular list
     url(r'^bookmark_t_CBV/$', views.BookmarkLV.as_view(), name='index_t_CBV'),
     url(r'^bookmark_t_FBV/$', views.tabularBookmark, name='index_t_FBV'),
+
+    url(r'^admin/', include(admin.site.urls)),
+    # Class-based views for Bookmark app
+    url(r'^bookmark/$', BookmarkLV.as_view(), name='index'),
+    url(r'^bookmark/(?P<pk>\d+)/$', BookmarkDV.as_view(), name='detail'),
 
 ]
