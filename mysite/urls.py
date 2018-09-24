@@ -22,9 +22,6 @@ from django.contrib import admin
 from bookmark.views import *
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-
-    # Class-based views for Bookmark app
-    url(r'^bookmark/$', BookmarkLV.as_view(), name='index'),
-    url(r'^bookmark/(?P<pk>\d+)/$', BookmarkDV.as_view(), name='detail'),
+    url(r'^admin/', admin.sites.urls),
+    url(r'', include('bookmark.urls')),
 ]
