@@ -13,18 +13,33 @@
 
 <body>
 
-<div id="content">
-
+<div>
     <h1>Bookmark List</h1>
     <h4><span class="first">&nbsp;&nbsp;216230124 이승연&nbsp;&nbsp;</span></h4>
+</div>
 
-    <ul>
-        {% for bookmark in object_list %}
-            <li><a href="{% url 'detail' bookmark.id %}">{{bookmark}}</a></li>
-        {% endfor %}
+<div id="content">
+	<table id="tb" border="1">
 
-    </ul>
+	<tr>
+		<th>&nbsp;&nbsp;제목&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;주소&nbsp;&nbsp;</th>
+	</tr>
 
+	{% for bookmark in object_list %}
+	<tr>
+		<td>
+			<a href="{% url 'detail' bookmark.id %}">{{bookmark}}</a><br/>
+        </td>
+
+		<td>
+			<a href="{{ bookmark.url }}">{{ bookmark.url }}</a><br/>
+        </td>
+	</tr>
+	{% endfor %}
+
+
+	</table>
 </div>
 
 </body>

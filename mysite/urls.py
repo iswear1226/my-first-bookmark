@@ -18,7 +18,7 @@ from django.contrib import admin
 
 from bookmark.views import *
 # 장고 내장 함수 url() 임포트
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.contrib import admin
 
 # URL 패턴에 따라 뷰를 호출할 예정(아직 해당 뷰 코드는 작성 전 상태)
@@ -26,7 +26,7 @@ from bookmark.views import BookmarkLV, BookmarkDV
 # from bookmark.views import * # 모든 뷰 항목을 일괄 임포트
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     # url(regex, view, kwargs=None, name=None, prefix='')
     # 여기서 regex와 view는 필수 인자)
     # Class-based views for Bookmark app
