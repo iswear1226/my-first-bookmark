@@ -7,6 +7,11 @@
     <style type="text/css">
         h4 {color: #15191B;}
         .first {background-color: #ACE0F5}
+        #tb th {background-color: #ECCEF5;}
+		#tb {padding-top: 10px;}
+		#tb td {border: 0.1px solid #D8D8D8;}
+		#tb th {border: 0.1px solid #D8D8D8;}
+
     </style>
 
 </head>
@@ -19,21 +24,23 @@
 </div>
 
 <div id="content">
-	<table id="tb" border="1">
 
+	<table id="tb">
 	<tr>
-		<th>&nbsp;&nbsp;제목&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;번호&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;사이트 명&nbsp;&nbsp;</th>
 		<th>&nbsp;&nbsp;주소&nbsp;&nbsp;</th>
 	</tr>
 
 	{% for bookmark in object_list %}
 	<tr>
+		<td>{{ bookmark.id }}</td>
 		<td>
-			<a href="{% url 'detail' bookmark.id %}">{{bookmark}}</a><br/>
+			<a href="{% url 'detail' bookmark.id %}">{{bookmark}}</a>
         </td>
 
 		<td>
-			<a href="{{ bookmark.url }}">{{ bookmark.url }}</a><br/>
+			<a href="{{ bookmark.url }}">{{ bookmark.url }}</a>
         </td>
 	</tr>
 	{% endfor %}
